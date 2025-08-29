@@ -12,8 +12,37 @@
 - 🗂 **Risk Prioritization** – Automatically scores findings based on severity and likelihood.
 - 📄 **Executive-Friendly Reports** – Converts technical results into clear summaries for leadership or audit.
 - 🔁 **Feedback Loop** – Agents learn from past scan patterns to improve detection.
+- 🎛 **Hybrid Scanner Front-End** – Command-line interface that performs an Nmap
+  external scan, attempts exploitation with Hexstrike MCP, and writes a
+  per-target report.
+- 🌐 **HTTP Backend** – Optional FastAPI service exposing a `/scan` endpoint to
+  launch assessments programmatically.
 
 ---
+
+## 🚀 Usage
+
+### CLI
+
+Run the command-line interface against one or more targets:
+
+```bash
+python frontend.py 127.0.0.1 example.com
+```
+
+### Backend
+
+Start the HTTP service (requires `fastapi` and `uvicorn`):
+
+```bash
+python backend.py
+```
+
+Then send a POST request to `http://localhost:8000/scan` with a JSON body:
+
+```json
+{"targets": ["127.0.0.1"]}
+```
 
 ## 📁 Project Structure
 
